@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,8 @@ public class WalletBalance {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USERWALLET_ID")
+	//ID = 1 is used for init data.
+	@SequenceGenerator(name = "SEQ_USERWALLET_ID", initialValue = 2, allocationSize = 1, sequenceName = "SEQ_USERWALLET_ID")
 	@Column(name = "wallet_balance_id")
 	private Long id;
 	
