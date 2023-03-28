@@ -1,0 +1,2 @@
+INSERT INTO TRADER (trader_id, full_name, user_name, email, password) VALUES (1, 'Harris Nguyen', 'harris', 'harris@trade.com', 'mypass');
+INSERT INTO WALLET_BALANCE (wallet_balance_id, trader_id, crypto_symbol, crypto_amount) VALUES (1, 1, 'USDT', 50000);
