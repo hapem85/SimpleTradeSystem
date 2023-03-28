@@ -32,6 +32,12 @@ public class CryptoScheduler {
 	@Autowired
 	private CryptoService cryptoService;
 	
+	/**
+	 * Interval scheduler to retrieve the pricing from the sources
+	 * and store the best pricing into the database.
+	 * Bid Price use for SELL order, Ask Price use for BUY order
+	 * @throws Exception
+	 */
 	@Scheduled(fixedDelay = 10000)
 	public void updateCryptoBestPrice() throws Exception {
 		log.info("RUNNING SCHEDULE");
@@ -59,7 +65,7 @@ public class CryptoScheduler {
 				// Find best BUY price.
 				if(entry.getValue().getAskPrice() < crypto.getAskPrice()) {
 					crypto.setAskPrice(entry.getValue().getAskPrice());
-					crypto.setAskSource(entry.getValue().getBidSource());
+					crypto.setAskSource(entry.getValue().getAskSource());
 				}
 				
 			} else {
